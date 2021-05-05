@@ -8,6 +8,7 @@
             include("database.php");
 
             if (isset($_POST['VolID']) && isset($_POST['Date']) && isset($_POST['TimeIn']) && isset($_POST['TimeOut']))
+            {
                 $volId = filter_var($_POST['VolID'], FILTER_SANITIZE_STRING) ;
                 $date = filter_var($_POST['Date'], FILTER_SANITIZE_STRING) ;
                 $timeIn = filter_var($_POST['TimeIn'], FILTER_SANITIZE_STRING) ;
@@ -20,9 +21,10 @@
                   ."<p>Error code: ".mysqli_errno($conn).": "
                   .mysqli_error($conn))."</p>" ;
                 echo "<p>Successfully updated ".mysqli_affected_rows($conn)." record(s).</p>" ;
-               }
+             } else {
                // Close the database connection
-               mysqli_close($conn) ;        
+               mysqli_close($conn) ; 
+             }       
 
     ?>          
 

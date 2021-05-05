@@ -2,7 +2,7 @@
     $url='localhost';
     $username='root';
     $password='';
-    $conn=mysqli_connect($url,$username,$password,"fregister");
+    $conn=mysqli_connect($url,$username,$password,"cscamp");
     if(!$conn){
         die('Could not Connect My Sql:' .mysql_error());
     }

@@ -3,10 +3,10 @@
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
-	header('Location: index.html');
+	header('Location: login.html');
 	exit;
 }
-?
+?>
 
 <!DOCTYPE html>
 <html>
@@ -20,18 +20,16 @@ if (!isset($_SESSION['loggedin'])) {
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?php include 'database.php';
-        echo "$conn";
+        $sql = "SELECT vol_id, first_name, last_name FROM volunteer_info";
+        $result = $conn->query($sql);
         ?>
 
 <body>
     <div class="header">
         <h1>Group 5 project</h1>
-        
-       </div>
- 
-
+        </div>
        <div class="navbar">
-        <a href="#">Home</a>
+        <a href="index.html">Home</a>
         <a href="#">Display Events</a>
         <a href="#">Soical Media</a>
         <a href="#">Donate</a>
@@ -40,22 +38,31 @@ if (!isset($_SESSION['loggedin'])) {
     
     <h1>Volunteer Dashboard</h1>
     <h2>Jobs Available</h2>
+    
     <div>
-        <form method="POST" action="volunteer.php">
-            <p>Job Name: </p>
+        <form method="POST" action="list.php">
+        <p>JOBS:
+                        <select name='job' id='job'>
+                        <option>chose a job</option>
+                        <option>WebDev</option>
+                        <option>Gadget</option>
+                        <option>Data</option>
+                        </select></p>
+                        <input type="submit" value="Sumbit">
         </form>
     </div>
     <h2>Hours</h2>
     <div>
         <form method="POST" action="hours.php">
-            <p>Volunteer ID: 
-            <input type="number" name="VolID" id="VolID" min="1" max="3010"></p>
+            <p>Volunteer ID: <?php echo $_SESSION['vol_id'];?>
+            <input type="hidden" name="VolID" id="VolID" value="<?php echo $_SESSION['vol_id'];?>"></p>
             <p>Date:
             <input type="date" name="Date" id="Date" min="06/14/2021" max="07/02/2021"></p>
             <p>Time In: 
             <input type="time" name="TimeIn" id="TimeIn" min="8:00" max="13:00"></p>
             <p>Time Out: 
             <input type="time" name="TimeOut" id="TimeOut" min="13:00" max="18:00"></p>
+            <input type="submit" value="Sumbit">
         </form>
     </div>
 </body>

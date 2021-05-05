@@ -35,7 +35,7 @@ if ($stmt = $con->prepare('SELECT vol_id, password FROM accounts WHERE username 
             $_SESSION['loggedin'] = TRUE;
             $_SESSION['name'] = $_POST['username'];
             $_SESSION['vol_id'] = $id;
-            header('Location: volunteer.html');
+            header('Location: volunteer.php');
         } else {
             // Incorrect password
             echo 'Incorrect username and/or password!';

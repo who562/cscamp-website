@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>voluteer information</title>
+		<link href="login.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	</head>
+	<body>
+		<div class="register">
+			<h1>Register</h1>
+            <form action="addvol.php" method="post">
+                <p>
+                    <label for="firstName">First Name:</label>
+                    <input type="text" name="first_name" id="firstName">
+                </p>
+                <p>
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" name="last_name" id="lastName">
+                </p>
+                <p>
+                    <label for="birthday">Birthday:</label>
+                    <input type="date" name="date" id="date"  value="<?php echo date('Y-m-d'); ?>" />
+                </p>
+                <input type="submit" value="Submit">
+            </form>
+            </body>
+            </html>

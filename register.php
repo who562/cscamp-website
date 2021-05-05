@@ -35,7 +35,7 @@ if ($stmt = $con->prepare('SELECT vol_id, password FROM accounts WHERE username 
 	$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 	$stmt->bind_param('sss', $_POST['username'], $password, $_POST['email']);
 	$stmt->execute();
-	echo 'You have successfully registered, you can now login!';
+	header('Location: AddEmployee.html');
 } else {
 	// Something is wrong with the sql statement, check to make sure accounts table exists with all 3 fields.
 	echo 'Could not prepare statement!';
