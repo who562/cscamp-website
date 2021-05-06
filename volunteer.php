@@ -1,11 +1,10 @@
 <?php
-// We need to use sessions, so you should always start sessions using the below code.
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
-	header('Location: login.html');
+	header('Location: login.php');
 	exit;
-}
+} 
 ?>
 
 <!DOCTYPE html>
@@ -20,8 +19,7 @@ if (!isset($_SESSION['loggedin'])) {
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <?php include 'database.php';
-        $sql = "SELECT vol_id, first_name, last_name FROM volunteer_info";
-        $result = $conn->query($sql);
+        
         ?>
 
 <body>
@@ -40,15 +38,14 @@ if (!isset($_SESSION['loggedin'])) {
     <h2>Jobs Available</h2>
     
     <div>
-        <form method="POST" action="list.php">
-        <p>JOBS:
-                        <select name='job' id='job'>
-                        <option>chose a job</option>
-                        <option>WebDev</option>
-                        <option>Gadget</option>
-                        <option>Data</option>
-                        </select></p>
-                        <input type="submit" value="Sumbit">
+    <form method="POST" action="list.php">
+            <p>Web Development</p>
+            <input type="radio" name="job" value="WebDev"></p>
+            <p>Gadgeteers</p>
+            <input type="radio" name="job" value="Gadget"></p>
+            <p>Data Analysis</p>
+            <input type="radio" name="job" value="Data"></p>
+            <input type="submit" value="Submit">
         </form>
     </div>
     <h2>Hours</h2>
@@ -62,6 +59,8 @@ if (!isset($_SESSION['loggedin'])) {
             <input type="time" name="TimeIn" id="TimeIn" min="8:00" max="13:00"></p>
             <p>Time Out: 
             <input type="time" name="TimeOut" id="TimeOut" min="13:00" max="18:00"></p>
+            <p>TaskID: 
+            <input type="number" name="TaskID" min="8031" max="8039" id="TaskID"></p>
             <input type="submit" value="Sumbit">
         </form>
     </div>

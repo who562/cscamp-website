@@ -4,11 +4,10 @@
 
     require_once('database.php') ;
 
-    if (isset($_POST['WebDev']) && isset($_POST['Gadget']) && isset($_POST['Data']))
-        $webDev = filter_var($_POST['WebDev'], FILTER_SANITIZE_STRING) ;
-        $gadget = filter_var($_POST['Gadget'], FILTER_SANITIZE_STRING) ;
-        $data = filter_var($_POST['Data'], FILTER_SANITIZE_STRING) ;
-
+    if (isset($_POST['job'])) {
+        $job= filter_var($_POST['job'], FILTER_SANITIZE_STRING) ;
+        
+    }
     
     $query1 = "SELECT * FROM tasks WHERE job_id = 7068" ;
     $query2 = "SELECT * FROM tasks WHERE job_id = 7071" ;
@@ -25,7 +24,7 @@
      // Disply query result
      echo "<table width='100%' border='1'>" ;
      echo "<tr><th>Task ID</th><th>Task Name</th><th>Job ID</th><th>Start Date</th><th>End Date</th></tr>" ;
-     if($webDev){
+     if($job == 'WebDev'){
         $Row = @mysqli_fetch_row($q1Result) ;
         do {
             echo "<tr>" ;
@@ -38,7 +37,7 @@
         echo "</table>" ;
         echo "<p>Total rows returned: ".@mysqli_num_rows($q1Result)."</p>"; 
     }
-    else if($gadget){
+    if($job == 'Gadget'){
         $Row = @mysqli_fetch_row($q2Result) ;
         do {
             echo "<tr>" ;
@@ -51,8 +50,8 @@
         echo "</table>" ;
         echo "<p>Total rows returned: ".@mysqli_num_rows($q2Result)."</p>" ;
         
-    }else($data){
-        
+    }if($job == 'Data'){
+        $Row = @mysqli_fetch_row($q3Result);
         do {
             echo "<tr>" ;
             for ($i = 0 ; $i < $NumFields3 ; $i++) {
