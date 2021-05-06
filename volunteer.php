@@ -29,7 +29,7 @@ if (!isset($_SESSION['loggedin'])) {
        <div class="navbar">
         <a href="index.html">Home</a>
         <a href="#">Display Events</a>
-        <a href="#">Soical Media</a>
+        <a href="#">Social Media</a>
         <a href="#">Donate</a>
         <a href="Logout.php" class="right">Logout</a>
       </div>
