@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(100) NOT NULL,
+  FOREIGN KEY  (`vol_id`)   REFERENCES `volunteer_info` (`vol_id`),
   PRIMARY KEY (`vol_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
@@ -63,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `jobs` (
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   PRIMARY KEY (`job_id`),
-  KEY `man_id` (`man_id`)
+  FOREIGN KEY `man_id` (`man_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -71,9 +72,9 @@ CREATE TABLE IF NOT EXISTS `jobs` (
 --
 
 INSERT INTO `jobs` (`job_id`, `job_name`, `man_id`, `start_date`, `end_date`) VALUES
-(7068, 'Web Development', 3002, '0000-00-00', '0000-00-00'),
-(7071, 'Gadgeteers', 3003, '0000-00-00', '0000-00-00'),
-(7079, 'Data Analysis', 3001, '0000-00-00', '0000-00-00');
+(7068, 'Web Development', 3002, '2021-06-14', '2021-07-02'),
+(7071, 'Gadgeteers', 3003, '2021-06-14', '2021-07-02'),
+(7079, 'Data Analysis', 3001, '2021-06-14', '2021-07-02');
 
 -- --------------------------------------------------------
 
@@ -96,9 +97,9 @@ CREATE TABLE IF NOT EXISTS `manager_info` (
 --
 
 INSERT INTO `manager_info` (`man_id`, `birth_date`, `first_name`, `last_name`, `hire_date`) VALUES
-(3001, '0000-00-00', 'Harrison', 'Perry', '0000-00-00'),
-(3002, '0000-00-00', 'Storm', 'Willis', '0000-00-00'),
-(3003, '0000-00-00', 'Stephanie', 'Kim', '0000-00-00');
+(3001, '1985-08-13', 'Harrison', 'Perry', '2021-01-09'),
+(3002, '1992-12-15', 'Storm', 'Willis', '2021-01-09'),
+(3003, '1990-01-25', 'Stephanie', 'Kim', '2021-01-10');
 
 -- --------------------------------------------------------
 
@@ -108,30 +109,29 @@ INSERT INTO `manager_info` (`man_id`, `birth_date`, `first_name`, `last_name`, `
 
 DROP TABLE IF EXISTS `tasks`;
 CREATE TABLE IF NOT EXISTS `tasks` (
-  `vol_id` int(11) NOT NULL AUTO_INCREMENT,
   `task_id` int(11) NOT NULL,
   `task_name` varchar(50) NOT NULL,
   `job_id` int(11) NOT NULL,
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
-  PRIMARY KEY (`vol_id`),
-  KEY `job_id` (`job_id`)
+  PRIMARY KEY (`task_id`),
+  FOREIGN KEY `job_id` (`job_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tasks`
 --
 
-INSERT INTO `tasks` (`vol_id`, `task_id`, `task_name`, `job_id`, `start_date`, `end_date`) VALUES
-(46, 8039, 'Gadget Projects', 7071, '0000-00-00', '0000-00-00'),
-(45, 8038, 'Data Projects', 7079, '0000-00-00', '0000-00-00'),
-(44, 8037, 'Web Dev Projects', 7068, '0000-00-00', '0000-00-00'),
-(43, 8036, 'Raspberry Pi', 7071, '0000-00-00', '0000-00-00'),
-(41, 8034, 'JavaScript & JQuery', 7068, '0000-00-00', '0000-00-00'),
-(42, 8035, 'R', 7079, '0000-00-00', '0000-00-00'),
-(40, 8033, 'Arduino', 7071, '0000-00-00', '0000-00-00'),
-(39, 8032, 'Python', 7079, '0000-00-00', '0000-00-00'),
-(38, 8031, 'HTML & CSS', 7068, '0000-00-00', '0000-00-00');
+INSERT INTO `tasks` (`task_id`, `task_name`, `job_id`, `start_date`, `end_date`) VALUES
+(8039, 'Gadget Projects', 7071, '2021-06-28', '2021-07-02'),
+(8038, 'Data Projects', 7079, '2021-06-28', '2021-07-02'),
+(8037, 'Web Dev Projects', 7068, '2021-06-28', '2021-07-02'),
+(8036, 'Raspberry Pi', 7071, '2021-06-21', '2021-06-25'),
+(8034, 'JavaScript & JQuery', 7068, '2021-06-21', '2021-06-25'),
+(8035, 'R', 7079, '2021-06-21', '2021-06-25'),
+(8033, 'Arduino', 7071, '2021-06-14', '2021-06-18'),
+(8032, 'Python', 7079, '2021-06-14', '2021-06-18'),
+(8031, 'HTML & CSS', 7068, '2021-06-14', '2021-06-18');
 
 -- --------------------------------------------------------
 
@@ -162,7 +162,9 @@ CREATE TABLE IF NOT EXISTS `volunteer_hours` (
   `curr_date` date NOT NULL,
   `time_in` time NOT NULL,
   `time_out` time NOT NULL,
-  `TaskID` int(11) NOT NULL,
+  `task_id` int(11) NOT NULL,
+  FOREIGN KEY  (`vol_id`)   REFERENCES `volunteer_info` (`vol_id`),
+  FOREIGN KEY  (`task_id`)   REFERENCES `tasks` (`task_id`),
   PRIMARY KEY (`vol_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -170,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `volunteer_hours` (
 -- Dumping data for table `volunteer_hours`
 --
 
-INSERT INTO `volunteer_hours` (`vol_id`, `curr_date`, `time_in`, `time_out`, `TaskID`) VALUES
+INSERT INTO `volunteer_hours` (`vol_id`, `curr_date`, `time_in`, `time_out`, `task_id`) VALUES
 (10, '2021-05-13', '12:05:00', '15:15:00', 8031);
 
 -- --------------------------------------------------------
