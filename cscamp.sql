@@ -23,6 +23,8 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+USE `cscamp`;
+
 --
 -- Table structure for table `volunteer_info`
 --
