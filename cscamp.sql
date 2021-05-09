@@ -23,6 +23,36 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+CREATE DATABASE `cscamp`;
+USE `cscamp`;
+
+--
+-- Table structure for table `volunteer_info`
+--
+
+DROP TABLE IF EXISTS `volunteer_info`;
+CREATE TABLE IF NOT EXISTS `volunteer_info` (
+  `vol_id` int(11) NOT NULL AUTO_INCREMENT,
+  `birth_date` date NOT NULL,
+  `first_name` varchar(14) NOT NULL,
+  `last_name` varchar(16) NOT NULL,
+  PRIMARY KEY (`vol_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+
+--
+-- Table structure for table `manager_info`
+--
+
+DROP TABLE IF EXISTS `manager_info`;
+CREATE TABLE IF NOT EXISTS `manager_info` (
+  `man_id` int(11) NOT NULL,
+  `birth_date` date NOT NULL,
+  `first_name` varchar(14) NOT NULL,
+  `last_name` varchar(16) NOT NULL,
+  `hire_date` date NOT NULL,
+  PRIMARY KEY (`man_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
 --
 -- Table structure for table `accounts`
 --
@@ -36,21 +66,6 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   FOREIGN KEY  (`vol_id`)   REFERENCES `volunteer_info` (`vol_id`),
   PRIMARY KEY (`vol_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `accounts`
---
-
-INSERT INTO `accounts` (`vol_id`, `username`, `password`, `email`) VALUES
-(2, 'alex', '$2y$10$ibWqf9NwEIrjSEIvD4OhI.voZgMTwzB.8PSbiFMaiQUCFG2me0i6C', 'test@gmail.com'),
-(5, 'dvdvdv', '$2y$10$5qp5ZR.vDuqb3tsMUCAgEuFhnzxcqVkX6nwFbT.yP/XwY9c.C3TtC', '123ava@yahoo.com'),
-(6, 'gfdfh', '$2y$10$aRB2KwuUExjzulx/U6eaDOkT0tjd38mDo/oOY/MJvBnEmv2Dvd6L2', 'fhdfh@yahoo.com'),
-(7, 'bob', '$2y$10$Fc/M4pqqUIe47YTNOxBDcewiB6Zof5X1YHDrxkQhfAZr8v2.FgJ2K', 'fas@gmail.com'),
-(8, 'jam', '$2y$10$.wGuEsltvGbFSebu4jzzK./rWg.Bg8cQ3a5sWi9icmqWZBFno3686', 'test562@yahoo.com'),
-(9, 'max', '$2y$10$Xet9sKSJRpcwU8nY5d740uULjNal8RoPptbuq.y2rhlXgNpmvZ7o2', 'max123@gmail.com'),
-(10, 'jack', '$2y$10$KfP7mk06RigojrutTBcyk.IWjGf8G6O6OAMXmv8h52TlPKmM6DjJa', 'jack123@yahoo.com');
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `jobs`
@@ -68,42 +83,6 @@ CREATE TABLE IF NOT EXISTS `jobs` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `jobs`
---
-
-INSERT INTO `jobs` (`job_id`, `job_name`, `man_id`, `start_date`, `end_date`) VALUES
-(7068, 'Web Development', 3002, '2021-06-14', '2021-07-02'),
-(7071, 'Gadgeteers', 3003, '2021-06-14', '2021-07-02'),
-(7079, 'Data Analysis', 3001, '2021-06-14', '2021-07-02');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `manager_info`
---
-
-DROP TABLE IF EXISTS `manager_info`;
-CREATE TABLE IF NOT EXISTS `manager_info` (
-  `man_id` int(11) NOT NULL,
-  `birth_date` date NOT NULL,
-  `first_name` varchar(14) NOT NULL,
-  `last_name` varchar(16) NOT NULL,
-  `hire_date` date NOT NULL,
-  PRIMARY KEY (`man_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `manager_info`
---
-
-INSERT INTO `manager_info` (`man_id`, `birth_date`, `first_name`, `last_name`, `hire_date`) VALUES
-(3001, '1985-08-13', 'Harrison', 'Perry', '2021-01-09'),
-(3002, '1992-12-15', 'Storm', 'Willis', '2021-01-09'),
-(3003, '1990-01-25', 'Stephanie', 'Kim', '2021-01-10');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `tasks`
 --
 
@@ -117,40 +96,6 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   PRIMARY KEY (`task_id`),
   FOREIGN KEY `job_id` (`job_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tasks`
---
-
-INSERT INTO `tasks` (`task_id`, `task_name`, `job_id`, `start_date`, `end_date`) VALUES
-(8039, 'Gadget Projects', 7071, '2021-06-28', '2021-07-02'),
-(8038, 'Data Projects', 7079, '2021-06-28', '2021-07-02'),
-(8037, 'Web Dev Projects', 7068, '2021-06-28', '2021-07-02'),
-(8036, 'Raspberry Pi', 7071, '2021-06-21', '2021-06-25'),
-(8034, 'JavaScript & JQuery', 7068, '2021-06-21', '2021-06-25'),
-(8035, 'R', 7079, '2021-06-21', '2021-06-25'),
-(8033, 'Arduino', 7071, '2021-06-14', '2021-06-18'),
-(8032, 'Python', 7079, '2021-06-14', '2021-06-18'),
-(8031, 'HTML & CSS', 7068, '2021-06-14', '2021-06-18');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `vol_id` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `profile_image` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `vol_id` (`vol_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
 
 --
 -- Table structure for table `volunteer_hours`
@@ -169,6 +114,83 @@ CREATE TABLE IF NOT EXISTS `volunteer_hours` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `vol_id` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `profile_image` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `vol_id` (`vol_id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+-- --------------------------------------------------------
+
+
+--
+-- Dumping data for table `accounts`
+--
+
+INSERT INTO `accounts` (`vol_id`, `username`, `password`, `email`) VALUES
+(2, 'alex', '$2y$10$ibWqf9NwEIrjSEIvD4OhI.voZgMTwzB.8PSbiFMaiQUCFG2me0i6C', 'test@gmail.com'),
+(5, 'dvdvdv', '$2y$10$5qp5ZR.vDuqb3tsMUCAgEuFhnzxcqVkX6nwFbT.yP/XwY9c.C3TtC', '123ava@yahoo.com'),
+(6, 'gfdfh', '$2y$10$aRB2KwuUExjzulx/U6eaDOkT0tjd38mDo/oOY/MJvBnEmv2Dvd6L2', 'fhdfh@yahoo.com'),
+(7, 'bob', '$2y$10$Fc/M4pqqUIe47YTNOxBDcewiB6Zof5X1YHDrxkQhfAZr8v2.FgJ2K', 'fas@gmail.com'),
+(8, 'jam', '$2y$10$.wGuEsltvGbFSebu4jzzK./rWg.Bg8cQ3a5sWi9icmqWZBFno3686', 'test562@yahoo.com'),
+(9, 'max', '$2y$10$Xet9sKSJRpcwU8nY5d740uULjNal8RoPptbuq.y2rhlXgNpmvZ7o2', 'max123@gmail.com'),
+(10, 'jack', '$2y$10$KfP7mk06RigojrutTBcyk.IWjGf8G6O6OAMXmv8h52TlPKmM6DjJa', 'jack123@yahoo.com');
+
+-- --------------------------------------------------------
+
+
+--
+-- Dumping data for table `jobs`
+--
+
+INSERT INTO `jobs` (`job_id`, `job_name`, `man_id`, `start_date`, `end_date`) VALUES
+(7068, 'Web Development', 3002, '2021-06-14', '2021-07-02'),
+(7071, 'Gadgeteers', 3003, '2021-06-14', '2021-07-02'),
+(7079, 'Data Analysis', 3001, '2021-06-14', '2021-07-02');
+
+-- --------------------------------------------------------
+
+
+--
+-- Dumping data for table `manager_info`
+--
+
+INSERT INTO `manager_info` (`man_id`, `birth_date`, `first_name`, `last_name`, `hire_date`) VALUES
+(3001, '1985-08-13', 'Harrison', 'Perry', '2021-01-09'),
+(3002, '1992-12-15', 'Storm', 'Willis', '2021-01-09'),
+(3003, '1990-01-25', 'Stephanie', 'Kim', '2021-01-10');
+
+-- --------------------------------------------------------
+
+
+--
+-- Dumping data for table `tasks`
+--
+
+INSERT INTO `tasks` (`task_id`, `task_name`, `job_id`, `start_date`, `end_date`) VALUES
+(8039, 'Gadget Projects', 7071, '2021-06-28', '2021-07-02'),
+(8038, 'Data Projects', 7079, '2021-06-28', '2021-07-02'),
+(8037, 'Web Dev Projects', 7068, '2021-06-28', '2021-07-02'),
+(8036, 'Raspberry Pi', 7071, '2021-06-21', '2021-06-25'),
+(8034, 'JavaScript & JQuery', 7068, '2021-06-21', '2021-06-25'),
+(8035, 'R', 7079, '2021-06-21', '2021-06-25'),
+(8033, 'Arduino', 7071, '2021-06-14', '2021-06-18'),
+(8032, 'Python', 7079, '2021-06-14', '2021-06-18'),
+(8031, 'HTML & CSS', 7068, '2021-06-14', '2021-06-18');
+
+-- --------------------------------------------------------
+
+
+--
 -- Dumping data for table `volunteer_hours`
 --
 
@@ -177,18 +199,6 @@ INSERT INTO `volunteer_hours` (`vol_id`, `curr_date`, `time_in`, `time_out`, `ta
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `volunteer_info`
---
-
-DROP TABLE IF EXISTS `volunteer_info`;
-CREATE TABLE IF NOT EXISTS `volunteer_info` (
-  `vol_id` int(11) NOT NULL AUTO_INCREMENT,
-  `birth_date` date NOT NULL,
-  `first_name` varchar(14) NOT NULL,
-  `last_name` varchar(16) NOT NULL,
-  PRIMARY KEY (`vol_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `volunteer_info`
