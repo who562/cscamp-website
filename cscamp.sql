@@ -62,7 +62,6 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   `username` varchar(50) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(100) NOT NULL,
-  FOREIGN KEY  (`vol_id`)   REFERENCES `volunteer_info` (`vol_id`),
   PRIMARY KEY (`vol_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
@@ -77,8 +76,7 @@ CREATE TABLE IF NOT EXISTS `jobs` (
   `man_id` int(11) NOT NULL,
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
-  PRIMARY KEY (`job_id`),
-  FOREIGN KEY `man_id` (`man_id`)
+  PRIMARY KEY (`job_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
@@ -92,8 +90,8 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `job_id` int(11) NOT NULL,
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
-  PRIMARY KEY (`task_id`),
-  FOREIGN KEY `job_id` (`job_id`)
+  `is_completed` enum('yes', 'no') NOT NULL DEFAULT 'no'),
+  PRIMARY KEY (`task_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=latin1;
 
 --
@@ -107,8 +105,6 @@ CREATE TABLE IF NOT EXISTS `volunteer_hours` (
   `time_in` time NOT NULL,
   `time_out` time NOT NULL,
   `task_id` int(11) NOT NULL,
-  FOREIGN KEY  (`vol_id`)   REFERENCES `volunteer_info` (`vol_id`),
-  FOREIGN KEY  (`task_id`)   REFERENCES `tasks` (`task_id`),
   PRIMARY KEY (`vol_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -175,16 +171,16 @@ INSERT INTO `manager_info` (`man_id`, `birth_date`, `first_name`, `last_name`, `
 -- Dumping data for table `tasks`
 --
 
-INSERT INTO `tasks` (`task_id`, `task_name`, `job_id`, `start_date`, `end_date`) VALUES
-(8039, 'Gadget Projects', 7071, '2021-06-28', '2021-07-02'),
-(8038, 'Data Projects', 7079, '2021-06-28', '2021-07-02'),
-(8037, 'Web Dev Projects', 7068, '2021-06-28', '2021-07-02'),
-(8036, 'Raspberry Pi', 7071, '2021-06-21', '2021-06-25'),
-(8034, 'JavaScript & JQuery', 7068, '2021-06-21', '2021-06-25'),
-(8035, 'R', 7079, '2021-06-21', '2021-06-25'),
-(8033, 'Arduino', 7071, '2021-06-14', '2021-06-18'),
-(8032, 'Python', 7079, '2021-06-14', '2021-06-18'),
-(8031, 'HTML & CSS', 7068, '2021-06-14', '2021-06-18');
+INSERT INTO `tasks` (`task_id`, `task_name`, `job_id`, `start_date`, `end_date`, `is_completed`) VALUES
+(8039, 'Gadget Projects', 7071, '2021-06-28', '2021-07-02', 'no'),
+(8038, 'Data Projects', 7079, '2021-06-28', '2021-07-02' 'no'),
+(8037, 'Web Dev Projects', 7068, '2021-06-28', '2021-07-02', 'no'),
+(8036, 'Raspberry Pi', 7071, '2021-06-21', '2021-06-25', 'no'),
+(8034, 'JavaScript & JQuery', 7068, '2021-06-21', '2021-06-25', 'no'),
+(8035, 'R', 7079, '2021-06-21', '2021-06-25', 'no'),
+(8033, 'Arduino', 7071, '2021-06-14', '2021-06-18', 'no'),
+(8032, 'Python', 7079, '2021-06-14', '2021-06-18', 'no'),
+(8031, 'HTML & CSS', 7068, '2021-06-14', '2021-06-18', 'no');
 
 -- --------------------------------------------------------
 
