@@ -88,7 +88,7 @@ if ($job == 'WebDev') {
       
       <?php } ?> 
        
-     </div>
+     
      <div id="droppable" class="ui-widget-header">
        <?php foreach ($completeItems1 as $key => $citem) { ?>
          <div class="listitems" >
@@ -98,29 +98,29 @@ if ($job == 'WebDev') {
            <p><?php echo $citem['start_date'] ?></p>
      
            <p><?php echo $citem['end_date'] ?></p>
-
+        </div> 
        <?php } ?>
+     </div>
 <?php } ?>
 
 <?php if ($job == 'Gadget') {
 
-foreach ($incomleteItems2 as $key => $item) { ?>
+    foreach ($incomleteItems2 as $key => $item) { ?>
 
-<div class="ui-widget-content listitems" data-itemid=<?php echo $item['task_id'] ?> >
+	<div class="ui-widget-content listitems" data-itemid=<?php echo $item['task_id'] ?> >
 
-  <p><strong><?php echo $item['task_name'] ?></strong></p>
+        <p><strong><?php echo $item['task_name'] ?></strong></p>
 
-  <hr />
+	<hr />
 
-  <p><?php echo $item['start_date'] ?></p>
+	<p><?php echo $item['start_date'] ?></p>
 
-  <p><?php echo $item['end_date'] ?></p>
+	<p><?php echo $item['end_date'] ?></p>
 
-</div>
+	</div>
 
-<?php } ?> 
+    <?php } ?> 
 
-</div>
 <div id="droppable" class="ui-widget-header">
 <?php foreach ($completeItems2 as $key => $citem) { ?>
  <div class="listitems" >
@@ -130,8 +130,11 @@ foreach ($incomleteItems2 as $key => $item) { ?>
    <p><?php echo $citem['start_date'] ?></p>
 
    <p><?php echo $citem['end_date'] ?></p>
+  </div>
+<?php } ?>
 
-}
+</div>
+<?php } ?>
 
 <?php if ($job == 'Data') {
 
@@ -151,7 +154,6 @@ foreach ($incomleteItems3 as $key => $item) { ?>
 
 <?php } ?> 
 
-</div>
 <div id="droppable" class="ui-widget-header">
     <?php foreach ($completeItems3 as $key => $citem) { ?>
     <div class="listitems" >
@@ -161,11 +163,12 @@ foreach ($incomleteItems3 as $key => $item) { ?>
     <p><?php echo $citem['start_date'] ?></p>
 
     <p><?php echo $citem['end_date'] ?></p>
+    </div>
+    <?php } ?>
+</div>
 
-}
-</div>
 <?php } ?>
-</div>
+
 
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
