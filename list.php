@@ -2,7 +2,7 @@
 
 <?php
 
-require_once('dbconnect.php') ;
+require_once('database.php') ;
 
 if (isset($_POST['job'])) {
     $job= filter_var($_POST['job'], FILTER_SANITIZE_STRING) ;
