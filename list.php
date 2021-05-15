@@ -99,7 +99,8 @@ if ($job == 'WebDev') {
      
            <p><?php echo $citem['end_date'] ?></p>
 
-}
+       <?php } ?>
+<?php } ?>
 
 <?php if ($job == 'Gadget') {
 
