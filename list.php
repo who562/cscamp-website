@@ -89,9 +89,9 @@
             echo "</div>";
         } 
 
-        if ($job == 'WebDev') {
+        if ($job == 'Gadget') {
 
-            foreach ($incomleteItems1 as $key => $item) { 
+            foreach ($incompleteItems2 as $key => $item) { 
 
                 echo "<div class='ui-widget-content listitems' data-itemid=". $item["task_id"].">";
   
@@ -109,7 +109,7 @@
             echo "</div>";
 
             echo "<div id='droppable' class='ui-widget-header'>";
-            foreach ($completeItems1 as $key => $citem) {
+            foreach ($completeItems2 as $key => $citem) {
                 echo "<div class='listitems'>";
                 echo "<p><strong>".$citem['task_name']."</p>";
                 echo "<hr/>";
@@ -123,9 +123,9 @@
             echo "</div>";
         } 
 
-        if ($job == 'WebDev') {
+        if ($job == 'Data') {
 
-            foreach ($incomleteItems1 as $key => $item) { 
+            foreach ($incompleteItems3 as $key => $item) { 
 
                 echo "<div class='ui-widget-content listitems' data-itemid=". $item["task_id"].">";
 
@@ -143,7 +143,7 @@
             echo "</div>";
 
             echo "<div id='droppable' class='ui-widget-header'>";
-            foreach ($completeItems1 as $key => $citem) {
+            foreach ($completeItems3 as $key => $citem) {
                echo "<div class='listitems'>";
                echo "<p><strong>".$citem['task_name']."</p>";
                echo "<hr/>";
