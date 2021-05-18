@@ -179,16 +179,11 @@ section {
   color:#fff;
 }
 
-@media screen and (max-width:960px){
-  .container{
-    padding-right:3rem;
-    padding-left:3rem;
-  }.text h2 {
-    font-size: 3em;
+@media (max-width: 680px) {
+  .text h3{
+    font-size:2rem;
   }
-  .text h3 {
-    font-size: 2em;
-  } section{
-    padding: auto;
-  }
+  .section-b{
+    padding-top:150px !important;
+    }
 }

@@ -11,12 +11,11 @@ if (!isset($_SESSION['loggedin'])) {
 <html>
 <head>
     <title>Volunteer Dashboard</title>
-    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="dash.css">
-        <script src="website.js"></script>
-        <script src="jquery-3.6.0.js"></script>
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css" integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="jquery-3.6.0.js"></script> 
         <?php include 'database.php';
         
         ?>
@@ -34,42 +33,45 @@ if (!isset($_SESSION['loggedin'])) {
 
 
       <section id="home">
-    <h1>Thank you for your hard work!</h1>
-    <p class="lead">please chose a job and make sure to sumbit the hours</p>
+    <h1>Thank you!</h1>
+    <p class="lead">Please chose a Job and make sure to sumbit the hours</p>
   </section>
   <section id="jobs">
   
     <h1>Volunteer Dashboard</h1>
-    <h2>Jobs Available</h2>
+    <h2>Jobs Available:</h2>
     
     <div>
-    <form method="POST" action="list.php">
-            <p>Web Development</p>
+    <form id="myTable" class="pure-form" action="list.php" method="POST" >
+    
+    <script src="website.js"></script>
+    <p>Web Development</p>
             <input type="radio" name="job" value="WebDev"></p>
             <p>Gadgeteers</p>
             <input type="radio" name="job" value="Gadget"></p>
             <p>Data Analysis</p>
             <input type="radio" name="job" value="Data"></p>
-            <input type="submit" value="Submit">
-        </form>
+            <button type="submit" onclick="hideForm()" id="table" class="pure-button pure-button-primary">Submit</button>
+            </form>
+            <div id="result"></div>
     </div>
     </section>
     
     <section id="hours">
     <h1>Hours</h1>
     <div>
-        <form method="POST" action="hours.php">
+        <form method="POST" class="pure-form" action="hours.php">
             <p>Volunteer ID: <?php echo $_SESSION['vol_id'];?>
             <input type="hidden" name="VolID" id="VolID" value="<?php echo $_SESSION['vol_id'];?>"></p>
             <p>Date:
-            <input type="date" name="Date" id="Date" min="06/14/2021" max="07/02/2021"></p>
+            <input type="date" name="Date" id="Date" min="06/14/2021" max="07/02/2021"required></p>
             <p>Time In: 
-            <input type="time" name="TimeIn" id="TimeIn" min="8:00" max="13:00"></p>
+            <input type="time" name="TimeIn" id="TimeIn" min="8:00" max="13:00"required></p>
             <p>Time Out: 
-            <input type="time" name="TimeOut" id="TimeOut" min="13:00" max="18:00"></p>
+            <input type="time" name="TimeOut" id="TimeOut" min="13:00" max="18:00"required></p>
             <p>TaskID(job choice): 
-            <input type="number" name="TaskID" min="8031" max="8039" id="TaskID"></p>
-            <input type="submit" value="Sumbit">
+            <input type="number" name="TaskID" min="8031" max="8039" id="TaskID"required></p>
+            <button type="submit" class="pure-button pure-button-primary">Submit</button>
         </form>
     </div>
     </section>
