@@ -57,7 +57,7 @@
 
         if ($job == 'WebDev') {
 
-            foreach ($incomleteItems1 as $key => $item) { 
+            foreach ($incompleteItems1 as $key => $item) { 
 
                 echo "<div class='ui-widget-content listitems' data-itemid=".$item["task_id"].">";
     
