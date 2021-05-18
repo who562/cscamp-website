@@ -17,9 +17,9 @@
 
 
          //Fetch all imcomplete list items
-        $incompleteItems1 = mysqli_fetch_all($q1Result);
-        $incompleteItems2 = mysqli_fetch_all($q2Result);
-        $incompleteItems3 = mysqli_fetch_all($q3Result);
+        $incompleteItems1 = mysqli_fetch_all($q1Result, MYSQLI_ASSOC);
+        $incompleteItems2 = mysqli_fetch_all($q2Result, MYSQLI_ASSOC);
+        $incompleteItems3 = mysqli_fetch_all($q3Result, MYSQLI_ASSOC);
 
         //Get incomplete items
         $sqlCompleted1 = "SELECT task_id, task_name, start_date, end_date FROM tasks WHERE job_id = 7068 AND is_completed = 'yes'" ;
@@ -31,9 +31,9 @@
         $completeResult3 = mysqli_query($conn, $sqlIncomplete3) ;
 
         //Fetch all completed items
-        $completeItems1 = mysqli_fetch_all($completeResult1);
-        $completeItems2 = mysqli_fetch_all($completeResult2);
-        $completeItems3 = mysqli_fetch_all($completeResult3);       
+        $completeItems1 = mysqli_fetch_all($completeResult1, MYSQLI_ASSOC);
+        $completeItems2 = mysqli_fetch_all($completeResult2, MYSQLI_ASSOC);
+        $completeItems3 = mysqli_fetch_all($completeResult3, MYSQLI_ASSOC);       
 
 
         // Disply query result
