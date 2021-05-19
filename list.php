@@ -7,9 +7,9 @@
     }else{
         $job= filter_var($_POST['job'], FILTER_SANITIZE_STRING);
     
-        $sqlIncomplete1 = "SELECT task_name, start_date, end_date FROM tasks WHERE job_id = 7068 AND is_completed = 'no'" ;
-        $sqlIncomplete2 = "SELECT task_name, start_date, end_date FROM tasks WHERE job_id = 7071 AND is_completed = 'no'" ;
-        $sqlIncomplete3 = "SELECT task_name, start_date, end_date FROM tasks WHERE job_id = 7079 AND is_completed = 'no'" ;
+        $sqlIncomplete1 = "SELECT task_id, task_name, start_date, end_date FROM tasks WHERE job_id = 7068 AND is_completed = 'no'" ;
+        $sqlIncomplete2 = "SELECT task_id, task_name, start_date, end_date FROM tasks WHERE job_id = 7071 AND is_completed = 'no'" ;
+        $sqlIncomplete3 = "SELECT task_id, task_name, start_date, end_date FROM tasks WHERE job_id = 7079 AND is_completed = 'no'" ;
 
         $q1Result = mysqli_query($conn, $sqlIncomplete1) ;
         $q2Result = mysqli_query($conn, $sqlIncomplete2) ;
@@ -59,7 +59,7 @@
 
             foreach ($incompleteItems1 as $key => $item) { 
 
-                echo "<div class='ui-widget-content listitems' data-itemid=".$item["task_id"].">";
+                echo "<div class='ui-widget-content listitems' data-itemid=".$item['task_id'].">";
     
                 echo "<p><strong><".$item['task_name']."</strong></p>";
       
