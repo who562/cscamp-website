@@ -34,7 +34,7 @@ if (!isset($_SESSION['loggedin'])) {
 
       <section id="home">
     <h1>Thank you!</h1>
-    <p class="lead">Please chose a Job and make sure to sumbit the hours</p>
+    <p class="lead">Please choose a Job and make sure to submit the hours</p>
   </section>
   <section id="jobs">
   
