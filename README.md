@@ -7,8 +7,6 @@ CS Camp Website is a PHP/HTML-based platform built for a computer science summer
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Challenges Faced](#challenges-faced)
-- [Live Demo](#live-demo)
-- [License](#license)
 
 ## Features
 
@@ -42,9 +40,5 @@ CS Camp Website is a PHP/HTML-based platform built for a computer science summer
 - Ensuring full responsiveness across different devices
 - Enhancing CSS design and JavaScript functionality for a better user experience
 
-## Live Demo
-
-Experience the live website at:  
-[CS Camp Website](https://ist4310cscamp.herokuapp.com/#home)
 
 This project showcases a dynamic, interactive platform aimed at improving volunteer engagement and task management for a summer camp environment. 🚀
