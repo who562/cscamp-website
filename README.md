@@ -1,8 +1,8 @@
-**CS Camp Website**
+# **CS Camp Website**
 
 A **PHP/HTML-based** website designed for a computer science summer camp. This project provides a platform for volunteers to log in, track hours, and manage tasks efficiently.
 
-🔹 Features
+# Features
 
 Home Page: Includes an About Us section and social media integration.
 
@@ -17,7 +17,7 @@ Responsive Web Design (RWD): Ensures smooth navigation on different devices.
 
 Live Twitter Feed: Displays real-time updates.
 
-🔹 Technologies Used
+# Technologies Used
 
 Frontend: HTML, CSS, JavaScript
 
@@ -27,7 +27,7 @@ Authentication: Google OAuth
 
 UI/UX: Responsive design with interactive elements
 
-🔹 Challenges Faced
+# Challenges Faced
 
 Implementing MySQL database integration.
 
