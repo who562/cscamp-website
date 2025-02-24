@@ -1,42 +1,50 @@
-# **CS Camp Website**
+# CS Camp Website
 
-A **PHP/HTML-based** website designed for a computer science summer camp. This project provides a platform for volunteers to log in, track hours, and manage tasks efficiently.
+CS Camp Website is a PHP/HTML-based platform built for a computer science summer camp. It provides volunteers with an efficient way to log in, track hours, and manage tasks, all through an interactive and user-friendly interface.
 
-# Features
+## Table of Contents
 
-Home Page: Includes an About Us section and social media integration.
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Challenges Faced](#challenges-faced)
+- [Live Demo](#live-demo)
+- [License](#license)
 
-Volunteer Login Portal:
-Sign up/login via the site form or Google OAuth.
-Log hours and select tasks.
+## Features
 
-Volunteer Dashboard:
-Drag-and-drop task management.
-Completed tasks are shaded and updated in the database.
-Responsive Web Design (RWD): Ensures smooth navigation on different devices.
+- **Home Page**
+  - About Us section
+  - Social media integration
 
-Live Twitter Feed: Displays real-time updates.
+- **Volunteer Login Portal**
+  - Sign up/login via site form or Google OAuth
+  - Log hours and select tasks
 
-# Technologies Used
+- **Volunteer Dashboard**
+  - Drag-and-drop task management
+  - Completed tasks are automatically shaded and updated in the database
+  - Fully responsive design for smooth navigation on various devices
 
-Frontend: HTML, CSS, JavaScript
+- **Live Twitter Feed**
+  - Displays real-time updates
 
-Backend: PHP, MySQL
+## Technologies Used
 
-Authentication: Google OAuth
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** PHP, MySQL
+- **Authentication:** Google OAuth
+- **UI/UX:** Responsive design with interactive elements
 
-UI/UX: Responsive design with interactive elements
+## Challenges Faced
 
-# Challenges Faced
+- Integrating the MySQL database for dynamic data management
+- Implementing Google OAuth authentication
+- Ensuring full responsiveness across different devices
+- Enhancing CSS design and JavaScript functionality for a better user experience
 
-Implementing MySQL database integration.
+## Live Demo
 
-Setting up Google OAuth authentication.
-
-Making the pages fully responsive.
-
-Enhancing CSS design and JavaScript functionality.
+Experience the live website at:  
+[CS Camp Website](https://ist4310cscamp.herokuapp.com/#home)
 
 This project showcases a dynamic, interactive platform aimed at improving volunteer engagement and task management for a summer camp environment. 🚀
-
-https://ist4310cscamp.herokuapp.com/#home
